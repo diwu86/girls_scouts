@@ -1,0 +1,19 @@
+<h1>Useful Links</h1>
+
+<table>
+  <tbody>
+    <% @links.each do |link| %>
+      <tr>
+        <td class="list_link"><%= link_to link.name, link.url %></td>
+        <td class="list_description"><%= link.description %></td>
+        <td><%= link_to 'Show', link %></td>
+        <td><%= link_to 'Edit', edit_link_path(link) %></td>
+        <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Link', new_link_path %>
