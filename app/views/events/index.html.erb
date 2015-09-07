@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %>First Meeting!</p>
+
+<h1>Check out all our Events</h1>
+
+<table>
+  <% @events.each do |event| %>
+      <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
+        <td class="list_time">
+          <%= event.time %>
+        </td>
+        <td class="list_description">
+          <dl>
+            <dt><%= event.name %></dt>
+            <dd><%= truncate(strip_tags(event.description), length: 80) %></dd>
+          </dl>
+        </td>
+        <td class="list_place">
+          <%= event.place %>
+        </td>
+        <!-- TODO actions will show to admin !-->
+        <td class="list_actions">
+          <%= link_to 'Show', event %><br/>
+          <%= link_to 'Edit', edit_event_path(event) %><br/>
+          <%= link_to 'Destroy', event, method: :delete,
+                      data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+<br>
+<!-- TODO actions will show to admin !-->
+<%= link_to 'New Event', new_event_path %>
