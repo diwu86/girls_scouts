@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home' => 'home#index'
+
   get 'admin/index'
 
   controller :sessions do
