@@ -1,0 +1,23 @@
+<div class="gs_form">
+  <% if flash[:alert] %>
+      <p id="notice"><%= flash[:alert] %></p>
+  <% end %>
+  <%= form_tag do %>
+      <fieldset>
+        <legend>If you are a member, please Log In</legend>
+        <div>
+          <%= label_tag :email, 'Email:' %>
+          <%= text_field_tag :email, params[:email] %>
+        </div>
+        <div>
+          <%= label_tag :password, 'Password:' %>
+          <%= password_field_tag :password, params[:password] %>
+        </div>
+        <div>
+          <%= submit_tag "Login" %>
+        </div>
+      </fieldset>
+  <% end %>
+  <p>If you are not a member, please sign up</p>
+  <%= link_to "Sign up", '/signup' %>
+</div>
